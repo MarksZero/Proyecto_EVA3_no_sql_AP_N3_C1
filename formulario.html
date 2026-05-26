@@ -5,98 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/cyborg.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="shortcut icon" href="./assets/images/among_us_player_red_icon_156942.png" type="image/x-icon">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="./scripts/ap_n3_c1.js"></script>
 
-    <title>Document</title>
+    <title>Formulario Registro</title>
 </head>
 
 <body>
-    <p class="h3">Formulario de Registro</p>
-    <br>
-
-    <form action="" method="post">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <label for="inputNombre" class="form-label">Nombre Completo:</label>
-                    <input type="text" name="" id="inputNombre" class="form-control" required>
-                </div>
-                <div class="col">
-                    <label for="inputEmail" class="form-label">Correo Electrónico:</label>
-                    <input type="email" name="" id="inputEmail" class="form-control" required>
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="col">
-                    <label for="inputRut" class="form-label">Rut:</label>
-                    <input type="text" name="" id="inputRut" class="form-control" required>
-                </div>
-                <div class="col">
-                    <label for="inputTelefono" class="form-label">Fono Contacto:</label>
-                    <input type="tel" name="" id="inputTelefono" class="form-control">
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="col">
-                    <label for="inputContrasena" class="form-label">Ingrese Contraseña:</label>
-                    <input type="password" name="" id="inputContrasena" class="form-control">
-                </div>
-                <div class="col">
-                    <label for="inputRepetirContrasena" class="form-label">Repita Contraseña:</label>
-                    <input type="password" name="" id="inputRepetirContrasena" class="form-control">
-                </div>
-            </div>
-            <br>
-
-            <div class="row">                
-                <div class="col">
-                    <label for="inputFechaNac" class="form-label">Fecha Nacimiento:</label>
-                    <input type="date" name="" id="inputFechaNac" class="form-control">
-                </div>
-
-                <div class="col">
-                    <p>Seleccione su Género:</p>
-                    <div class="form-check">
-                        <input type="radio" name="radioGenero" id="generoFemenino" value="F">
-                        <label for="generoFemenino">Femenino</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="radioGenero" id="generoMasculino" value="M">
-                        <label for="generoMasculino">Masculino</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="radioGenero" id="generoOtro" value="O">
-                        <label for="generoOtro">Otro</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <p>Seleccione su País:</p>
-                    <select name="" id="selectPais" class="form-select">
-                        <option value="56">Chile</option>
-                        <option value="02">Estados Unidos</option>
-                        <option value="54">Argentina</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-8"></div>
-                <div class="col-4">
-                    <input type="reset" class="btn btn-secondary" value="Cancelar">
-                    <input type="submit" class="btn btn-primary" value="Enviar">
-                </div>
-            </div>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="./inicio.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="./formulario.html" class="nav-link">Formulario de Registro</a></li>
+            </ul>
         </div>
-    </form>
+    </nav>
 
+    <div class="container principal">
+        <form action="" method="post">
+            <p class="h3">Formulario de Registro</p>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <label for="inputNombre" class="form-label">Nombre Completo:</label>
+                        <input type="text" name="" id="inputNombre" class="form-control" required>
+                    </div>
+                    <div class="col">
+                        <label for="inputEmail" class="form-label">Correo Electrónico:</label>
+                        <input type="email" name="" id="inputEmail" class="form-control" required>
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="inputRut" class="form-label">Rut:</label>
+                        <input type="text" name="" id="inputRut" class="form-control" required>
+                    </div>
+                    <div class="col">
+                        <label for="inputTelefono" class="form-label">Fono Contacto:</label>
+                        <input type="tel" name="" id="inputTelefono" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="inputContrasena" class="form-label">Ingrese Contraseña:</label>
+                        <input type="password" name="" id="inputContrasena" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="inputRepetirContrasena" class="form-label">Repita Contraseña:</label>
+                        <input type="password" name="" id="inputRepetirContrasena" class="form-control">
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="inputFechaNac" class="form-label">Fecha Nacimiento:</label>
+                        <input type="date" name="" id="inputFechaNac" class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <p>Seleccione su Género:</p>
+                        <div class="form-check">
+                            <input type="radio" name="radioGenero" id="generoFemenino" value="F">
+                            <label for="generoFemenino">Femenino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="radioGenero" id="generoMasculino" value="M">
+                            <label for="generoMasculino">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="radioGenero" id="generoOtro" value="O">
+                            <label for="generoOtro">Otro</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p>Seleccione su País:</p>
+                        <select name="" id="selectPais" class="form-select">
+                            <option value="56">Chile</option>
+                            <option value="02">Estados Unidos</option>
+                            <option value="54">Argentina</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-end">
+                        <input type="reset" class="btn btn-secondary me-2" value="Cancelar">
+                        <button type="button" class="btn btn-primary" value="Enviar" onclick="validarFormulario()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
