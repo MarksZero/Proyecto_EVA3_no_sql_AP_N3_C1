@@ -38,7 +38,7 @@ const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
 // Crear el método para CREAR esos objetos en DB
 aplicacion.post('/guardarUsuario', async (req, res) => {
     try {
-        let { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = req.body;
+        const { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = req.body;
         const saltRounds = 10;
         const contrasenaEncriptada = await bcrypt.hash(contrasena, saltRounds);
         const nuevoUsuario = new Usuario({ nombre, email, rut, telefono, contrasena:contrasenaEncriptada, nacimiento, genero, nacionalidad });
@@ -49,3 +49,8 @@ aplicacion.post('/guardarUsuario', async (req, res) => {
         res.status(500).json({ mensaje: 'No se han podido almacenar los datos: ', excepcion });
     }
 });
+
+// Crear método para obtener objetos desde la DB
+aplicacion.get('/listadoUsuarios'
+
+);
