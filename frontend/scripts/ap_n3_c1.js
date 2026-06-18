@@ -61,6 +61,10 @@ function validarFormulario() {
 
                 const info = await respuesta.json();
                 console.log('Datos correctamente almacenados: ', info);
+                if(respuesta.ok){
+                    formulario.reset();
+                    window.location.href='./inicio.html';
+                }
             }
             catch (error) {
                 console.log('Error al guardar los datos: ', error);

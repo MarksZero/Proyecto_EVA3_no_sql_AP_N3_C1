@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha512.js"></script>
     <script src="./scripts/ap_n3_c1.js"></script>
 
     <title>Formulario Registro</title>
@@ -35,11 +36,13 @@
                 <div class="row">
                     <div class="col">
                         <label for="inputNombre" class="form-label">Nombre Completo:</label>
-                        <input type="text" name="nombre" id="inputNombre" class="form-control" onchange="validarCampo(this)">
+                        <input type="text" name="nombre" id="inputNombre" class="form-control"
+                            onchange="validarCampo(this)">
                     </div>
                     <div class="col">
                         <label for="inputEmail" class="form-label">Correo Electrónico:</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" onchange="validarEmail(this)">
+                        <input type="email" name="email" id="inputEmail" class="form-control"
+                            onchange="validarEmail(this)">
                     </div>
                 </div>
                 <br>
@@ -51,7 +54,8 @@
                     </div>
                     <div class="col">
                         <label for="inputTelefono" class="form-label">Fono Contacto:</label>
-                        <input type="tel" name="telefono" id="inputTelefono" class="form-control" onchange="validarCampo(this)">
+                        <input type="tel" name="telefono" id="inputTelefono" class="form-control"
+                            onchange="validarCampo(this)">
                     </div>
                 </div>
                 <br>
@@ -59,11 +63,13 @@
                 <div class="row">
                     <div class="col">
                         <label for="inputContrasena" class="form-label">Ingrese Contraseña:</label>
-                        <input type="password" name="contrasena" id="inputContrasena" class="form-control" onchange="validarContrasena(this)">
+                        <input type="password" name="contrasena" id="inputContrasena" class="form-control"
+                            onchange="validarContrasena(this)">
                     </div>
                     <div class="col">
                         <label for="inputRepetirContrasena" class="form-label">Repita Contraseña:</label>
-                        <input type="password" name="" id="inputRepetirContrasena" class="form-control" onchange="validarRepetirContrasena(this,document.getElementById('inputContrasena'))">
+                        <input type="password" name="" id="inputRepetirContrasena" class="form-control"
+                            onchange="validarRepetirContrasena(this,document.getElementById('inputContrasena'))">
                     </div>
                 </div>
                 <br>
@@ -71,7 +77,8 @@
                 <div class="row">
                     <div class="col">
                         <label for="inputFechaNac" class="form-label">Fecha Nacimiento:</label>
-                        <input type="date" name="nacimiento" id="inputFechaNac" class="form-control" onchange="validarCampo(this)">
+                        <input type="date" name="nacimiento" id="inputFechaNac" class="form-control"
+                            onchange="validarCampo(this)">
                     </div>
 
                     <div class="col">
@@ -103,7 +110,8 @@
                 <div class="row">
                     <div class="col d-flex justify-content-end">
                         <input type="reset" class="btn btn-secondary me-2" value="Cancelar">
-                        <button type="button" class="btn btn-primary" value="Enviar" onclick="validarFormulario()">Enviar</button>
+                        <button type="button" class="btn btn-primary" value="Enviar"
+                            onclick="validarFormulario()">Enviar</button>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 const express = require('express'); // Express permite generar la aplicación backend
 const cors = require('cors'); // Cors permite que el servidor reciba solicitudes externas
 const mongoose = require('mongoose'); // ORM que permite trabajar con objetos y DBs
+const bcrypt = require('bcrypt');
 
 // Iniciar la aplicación express
 const aplicacion = express();
@@ -17,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/test')
     .catch((excepcion) => console.log('No ha sido posible conectarse por el siguiente error: ', excepcion));
 
 const port = process.env.port || 3000;
-aplicacion.listen(puerto, ()=>console.log(`Corriendo en el puerto ${port}`))
+aplicacion.listen(puerto, () => console.log(`Corriendo en el puerto ${port}`))
 
 // Crear el MODELO de datos
 const usuario = new mongoose.Schema({
@@ -26,7 +27,7 @@ const usuario = new mongoose.Schema({
     rut: String,
     telefono: String,
     contrasena: String,
-    nacimiento: String,
+    nacimiento: Date,
     genero: String,
     nacionalidad: String
 });
@@ -37,11 +38,13 @@ const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
 // Crear el método para CREAR esos objetos en DB
 aplicacion.post('/guardarUsuario', async (req, res) => {
     try {
-        const { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = req.body;
-        const nuevoUsuario = new Usuario({nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad});
+        let { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = req.body;
+        const saltRounds = 10;
+        const contrasenaEncriptada = await bcrypt.hash(contrasena, saltRounds);
+        const nuevoUsuario = new Usuario({ nombre, email, rut, telefono, contrasena:contrasenaEncriptada, nacimiento, genero, nacionalidad });
 
         await nuevoUsuario.save();
-        res.status(200).json({mensaje:'Datos almacenados correctamente.'});
+        res.status(200).json({ mensaje: 'Datos almacenados correctamente.' });
     } catch (excepcion) {
         res.status(500).json({ mensaje: 'No se han podido almacenar los datos: ', excepcion });
     }
