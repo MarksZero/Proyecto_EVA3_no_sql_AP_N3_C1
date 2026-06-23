@@ -32,21 +32,30 @@ const usuario = new mongoose.Schema({
     nacionalidad: String
 });
 
+const pais = new mongoose.Schema({
+    nombre: String,
+    iso2: String,
+    iso3: String,
+    codigoPais: String,
+    nacionalidad: String
+});
+
 // Crear un OBJETO en base al MODELO
 const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
+const Pais = mongoose.model('Pais', pais, 'paises');
 
 // Crear el método para CREAR esos objetos en DB
-aplicacion.post('/guardarUsuario', async (req, res) => {
+aplicacion.post('/guardarUsuario', async (request, response) => {
     try {
-        const { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = req.body;
+        const { nombre, email, rut, telefono, contrasena, nacimiento, genero, nacionalidad } = request.body;
         const saltRounds = 10;
         const contrasenaEncriptada = await bcrypt.hash(contrasena, saltRounds);
-        const nuevoUsuario = new Usuario({ nombre, email, rut, telefono, contrasena:contrasenaEncriptada, nacimiento, genero, nacionalidad });
+        const nuevoUsuario = new Usuario({ nombre, email, rut, telefono, contrasena: contrasenaEncriptada, nacimiento, genero, nacionalidad });
 
         await nuevoUsuario.save();
-        res.status(200).json({ mensaje: 'Datos almacenados correctamente.' });
+        response.status(200).json({ mensaje: 'Datos almacenados correctamente.' });
     } catch (excepcion) {
-        res.status(500).json({ mensaje: 'No se han podido almacenar los datos: ', excepcion });
+        response.status(500).json({ mensaje: 'No se han podido almacenar los datos: ', excepcion });
     }
 });
 
@@ -54,3 +63,16 @@ aplicacion.post('/guardarUsuario', async (req, res) => {
 aplicacion.get('/listadoUsuarios'
 
 );
+
+aplicacion.get('/listadoPaises', async (request, response) => {
+    try {
+        const paises = await Pais.find().exec();
+        if (!paises || paises.length === 0) {
+            return response.status(404).json({ mensaje: 'No se encontraron países registrados.' });
+        }
+
+        response.status(200).json(paises);
+    } catch (error) {
+        response.status(500).json({ mensaje: 'No ha sido posible obtener los datos: ', error })
+    }
+});

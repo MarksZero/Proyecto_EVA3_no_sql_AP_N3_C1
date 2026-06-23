@@ -1,3 +1,7 @@
+window.onload = function () {
+    obtenerPaises();
+};
+
 function validarFormulario() {
     let nombre = document.getElementById('inputNombre');
     let email = document.getElementById('inputEmail');
@@ -61,9 +65,9 @@ function validarFormulario() {
 
                 const info = await respuesta.json();
                 console.log('Datos correctamente almacenados: ', info);
-                if(respuesta.ok){
+                if (respuesta.ok) {
                     formulario.reset();
-                    window.location.href='./inicio.html';
+                    window.location.href = './inicio.html';
                 }
             }
             catch (error) {
@@ -158,4 +162,22 @@ function validarRut(campo) {
             return false
         }
     }
-}
+};
+
+async function obtenerPaises() {
+    try {
+        const respuesta = await fetch('http://localhost:3000/listadoPaises');
+        const paises = await respuesta.json();
+
+        const selectPaises = document.getElementById('selectPais');
+        console.log(paises)
+        Object.entries(paises).forEach(([key, pais]) => {
+            const opcion = document.createElement('option');
+            opcion.value = pais.iso2;
+            opcion.textContent = pais.nacionalidad;
+            selectPaises.appendChild(opcion);
+        });
+    } catch (error) {
+        console.log('Error: ', error);
+    }
+};
