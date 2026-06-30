@@ -20,6 +20,14 @@ mongoose.connect('mongodb://localhost:27017/AP_N3_C1')
 const port = process.env.port || 3000;
 aplicacion.listen(puerto, () => console.log(`Corriendo en el puerto ${port}`))
 
+const comuna = new mongoose.Schema({
+    codigo: String,
+    nombre: String,
+    region: String
+});
+// Crear un OBJETO en base al MODELO comuna
+const Comuna = mongoose.model('Comuna', comuna, 'comunas');
+
 const direccion = new mongoose.Schema({
     comuna: String,
     calle: String,
@@ -37,7 +45,7 @@ const usuario = new mongoose.Schema({
     nacimiento: Date,
     genero: String,
     nacionalidad: String,
-    direccion:[direccion]
+    direccion: [direccion]
 });
 // Crear un OBJETO en base al MODELO usuario
 const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
@@ -91,6 +99,19 @@ aplicacion.get('/paises', async (request, response) => {
         }
 
         response.status(200).json(paises);
+    } catch (error) {
+        response.status(500).json({ mensaje: 'No ha sido posible obtener los datos: ', error })
+    }
+});
+
+aplicacion.get('/comunas', async (request, response) => {
+    try {
+        const comunas = await Comuna.find().exec();
+        if (!comunas || comunas.length === 0) {
+            return response.status(404).json({ mensaje: 'No se encontraron comunas registradas.' });
+        }
+
+        response.status(200).json(comunas);
     } catch (error) {
         response.status(500).json({ mensaje: 'No ha sido posible obtener los datos: ', error })
     }

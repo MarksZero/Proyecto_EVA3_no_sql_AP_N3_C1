@@ -1,6 +1,7 @@
 window.onload = function () {
     new DataTable('#example');
     obtenerPaises();
+    obtenerComunas();
 };
 
 function validarFormulario() {
@@ -171,12 +172,28 @@ async function obtenerPaises() {
         const paises = await respuesta.json();
 
         const selectPaises = document.getElementById('selectPais');
-        console.log(paises)
         Object.entries(paises).forEach(([key, pais]) => {
             const opcion = document.createElement('option');
             opcion.value = pais.iso2;
             opcion.textContent = pais.nombre;
             selectPaises.appendChild(opcion);
+        });
+    } catch (error) {
+        console.log('Error: ', error);
+    }
+};
+
+async function obtenerComunas() {
+    try {
+        const respuesta = await fetch('http://localhost:3000/comunas');
+        const comunas = await respuesta.json();
+
+        const selectComunas = document.getElementById('selectComuna');
+        Object.entries(comunas).forEach(([key, comuna]) => {
+            const opcion = document.createElement('option');
+            opcion.value = comuna.codigo;
+            opcion.textContent = comuna.nombre;
+            selectComunas.appendChild(opcion);
         });
     } catch (error) {
         console.log('Error: ', error);
