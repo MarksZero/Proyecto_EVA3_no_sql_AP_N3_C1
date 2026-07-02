@@ -1,10 +1,10 @@
 // ===============================================
-// Base de datos: AP_N3_C1
+// Base de datos: EVA3_NO_SQL
 // Colección: comunas
 // Script completo comunas de Chile para MongoDB
 // ===============================================
 
-use("AP_N3_C1");
+use("EVA3_NO_SQL");
 
 db.createCollection("comunas");
 

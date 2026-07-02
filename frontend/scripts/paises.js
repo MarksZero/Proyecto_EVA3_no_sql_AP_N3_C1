@@ -4,7 +4,7 @@
 // Script completo países del mundo para MongoDB
 // ===============================================
 
-use("AP_N3_C1");
+use("EVA3_NO_SQL");
 
 db.createCollection("paises");
 

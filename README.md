@@ -77,9 +77,11 @@ http://localhost:3000
 
 La base de datos utilizada es:
 
+
 ```txt
-AP_N3_C1
+EVA3_NO_SQL
 ```
+Cambiada para evitar chocar con algun compañero si él no cambio el nombre
 
 ---
 
