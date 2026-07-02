@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuentas Bancarias</title>
+
+    <link rel="stylesheet" href="./css/brite.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+
+   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="./inicio.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="./formulario.html" class="nav-link">Formulario de Registro</a></li>
+                <li class="nav-item"><a href="./cuentas_bancarias.html" class="nav-link">Ver Cuentas Bancarias</a> </li>
+                                <li class="nav-item"><a href="./registro_cuenta.html" class="nav-link">Registrar Cuenta Bancaria </a> </li>
+
+            </ul>
+        </div>
+    </nav>
+
+<main class="container principal">
+
+    <h2 class="mb-4">Cuentas Bancarias por Usuario</h2>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered align-middle" id="tablaCuentas">
+            <thead class="table-primary">
+            <tr>
+                <th>Nombre Usuario</th>
+                <th>RUT</th>
+                <th>Correo</th>
+                <th>Banco</th>
+                <th>Tipo de Cuenta</th>
+                <th>Número de Cuenta</th>
+                <th>Moneda</th>
+                <th>Saldo</th>
+                <th>Estado</th>
+                <th>Sucursal</th>
+                <th>Titular</th>
+            </tr>
+            </thead>
+
+            <tbody id="cuerpoTablaCuentas">
+            </tbody>
+        </table>
+    </div>
+
+</main>
+
+<script src="./scripts/ap_n3_c1.js"></script>
+
+</body>
+</html>
