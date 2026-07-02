@@ -1,6 +1,6 @@
 # no_sql_AP_N3_C1
 
-Proyecto de la Evaluación N°3 de Bases de Datos No Estructuradas.
+Proyecto de la Evaluación N°3 de Bases de Datos No Estructuradas.(casi me mando una ******* y paso a subir todo a su repositorio xD)
 
 El sistema permite registrar usuarios en MongoDB y asociarlos con cuentas bancarias mediante una relación 1:N.
 
